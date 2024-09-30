@@ -7,6 +7,7 @@ import { Session } from 'next-auth'
 import { SessionProvider } from '@/components/SessionProvider'
 import { getServerSession } from 'next-auth'
 import { authOptions } from './api/[...nextauth]'
+import Login from '@/components/Login'
 // import { SessionProvider } from 'next-auth/react'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -34,7 +35,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <SessionProvider session={session}>
           {!session ? (
-            <div>Login</div>
+            <Login />
           ) : (
             <div className="flex">
               <div className="bg-[#202123] max-w-xs h-screen overflow-y-auto md:min-w-[18rem]">
